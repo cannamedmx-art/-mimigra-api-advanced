@@ -1,6 +1,6 @@
 import admin from "firebase-admin";
 
-import serviceAccount from "./mimigraai-firebase-adminsdk.json" assert { type: "json" };
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
 
 if (!admin.apps.length) {
   admin.initializeApp({
@@ -8,4 +8,4 @@ if (!admin.apps.length) {
   });
 }
 
-export const db = admin.firestore();
+export default admin;
